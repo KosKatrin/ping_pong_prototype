@@ -1,0 +1,28 @@
+import pygame
+import sys
+
+pygame.init()
+clock = pygame.time.Clock()
+FPS = 60
+
+WIDTH = 700  # ширина
+HEIGHT = 500  # высота
+window = pygame.display.set_mode((WIDTH, HEIGHT))  # создали окно размера (ширина, высота)
+pygame.display.set_caption('Пинг-понг')
+
+WHITE = (255, 255, 255)
+
+img = pygame.image.load()
+new_img = pygame.transform.scale(img, (700, 500))
+
+finish = False
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+
+    if not finish:
+        window.fill(WHITE)
+        window.blit(new_img, (0, 0))
+        pygame.display.update()
+    clock.tick(FPS)
